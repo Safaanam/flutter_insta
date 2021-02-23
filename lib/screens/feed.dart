@@ -4,6 +4,7 @@ import 'package:flutter_insta/screens/view_post_screen.dart';
 import 'package:flutter_insta/screens/message_screen.dart';
 import 'package:flutter_insta/screens/search_page.dart';
 
+
 class FeedScreen extends StatefulWidget {
   @override
   _FeedScreenState createState() => _FeedScreenState();

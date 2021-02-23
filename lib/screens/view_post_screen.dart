@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_insta/models/comment_model.dart';
 import 'package:flutter_insta/models/post_model.dart';
+import 'package:flutter_insta/models/like_bloc.dart';
 
 class ViewPostScreen extends StatefulWidget {
   final Post post;
@@ -60,6 +61,9 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final _bloc = LikeBloc();
+
     return Scaffold(
       backgroundColor: Color(0xFFEDF0F6),
       body: SingleChildScrollView(
@@ -167,15 +171,27 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                       IconButton(
                                         icon: Icon(Icons.favorite_border),
                                         iconSize: 30.0,
-                                        onPressed: () => print('Like post'),
+
+                                        onPressed: () {
+                                          _bloc.counterEventSink.add(IncrementEvent());
+
+                                        }
                                       ),
-                                      Text(
-                                        '2,515',
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                      StreamBuilder(
+                                        stream: _bloc.counter,
+                                        initialData: 0,
+                                        builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+                                          return Text(
+                                            '${snapshot.data}',
+                                            style: TextStyle(
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          );
+                                        },
                                       ),
+
+
                                     ],
                                   ),
                                   SizedBox(width: 20.0),
