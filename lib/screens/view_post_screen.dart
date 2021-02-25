@@ -21,6 +21,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
           width: 50.0,
           height: 50.0,
           decoration: BoxDecoration(
+            color: Theme.of(context).accentColor,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
@@ -43,11 +44,10 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         ),
         title: Text(
           comments[index].authorName,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+            style: Theme.of(context).textTheme.bodyText2,
         ),
-        subtitle: Text(comments[index].text),
+        subtitle: Text(comments[index].text,
+          style: Theme.of(context).textTheme.bodyText2),
         trailing: IconButton(
           icon: Icon(
             Icons.favorite_border,
@@ -65,7 +65,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
     final _bloc = LikeBloc();
 
     return Scaffold(
-      backgroundColor: Color(0xFFEDF0F6),
+
       body: SingleChildScrollView(
         physics: AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -75,7 +75,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
               width: double.infinity,
               height: 600.0,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.circular(25.0),
               ),
               child: Column(
@@ -90,7 +90,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                             IconButton(
                               icon: Icon(Icons.arrow_back),
                               iconSize: 30.0,
-                              color: Colors.black,
+                              //color: Colors.black,
                               onPressed: () => Navigator.pop(context),
                             ),
                             Container(
@@ -123,11 +123,10 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                 ),
                                 title: Text(
                                   widget.post.authorName,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                    style: Theme.of(context).textTheme.bodyText1,
                                 ),
-                                subtitle: Text(widget.post.timeAgo),
+                                subtitle: Text(widget.post.timeAgo,
+                                    style: Theme.of(context).textTheme.bodyText2),
                                 trailing: IconButton(
                                   icon: Icon(Icons.more_horiz),
                                   color: Colors.black,
@@ -144,6 +143,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                             width: double.infinity,
                             height: 400.0,
                             decoration: BoxDecoration(
+                                color: Theme.of(context).accentColor,
                               borderRadius: BorderRadius.circular(25.0),
                               boxShadow: [
                                 BoxShadow(
@@ -234,7 +234,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
               width: double.infinity,
               height: 600.0,
               decoration: BoxDecoration(
-                color: Colors.white,
+                  color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30.0),
                   topRight: Radius.circular(30.0),
@@ -258,6 +258,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         child: Container(
           height: 100.0,
           decoration: BoxDecoration(
+              color: Theme.of(context).canvasColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.0),
               topRight: Radius.circular(30.0),
@@ -269,7 +270,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                 blurRadius: 6.0,
               ),
             ],
-            color: Colors.white,
+            //color: Colors.white,
           ),
           child: Padding(
             padding: EdgeInsets.all(12.0),
@@ -285,7 +286,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                   borderSide: BorderSide(color: Colors.grey),
                 ),
                 contentPadding: EdgeInsets.all(20.0),
-                hintText: 'Add a comment',
+                hintText: 'Add a comment', hintStyle: Theme.of(context).textTheme.bodyText2 ,
                 prefixIcon: Container(
                   margin: EdgeInsets.all(4.0),
                   width: 48.0,

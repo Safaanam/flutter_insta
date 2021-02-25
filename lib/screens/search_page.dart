@@ -16,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     return new Scaffold(
-      backgroundColor: Color(0xFFEDF0F6),
+
       body: SingleChildScrollView(
          child: Column(
             children: <Widget>[
@@ -31,18 +31,19 @@ class _SearchPageState extends State<SearchPage> {
                         width: size.width - 30,
                         height: 50,
                         decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
                           borderRadius: BorderRadius.circular(10),
-                            color: Colors.blueGrey[200],
+
                         ),
                         child: TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             prefixIcon: Icon(
                               Icons.search,
-                              color: Colors.black87,
+
                             )
                           ),
-                          style: TextStyle(color: Colors.white),
+                          style: Theme.of(context).textTheme.bodyText2,
                           cursorColor: Colors.white.withOpacity(0.3),
                         ),
                       ),
@@ -56,6 +57,7 @@ class _SearchPageState extends State<SearchPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15),
                       child: Row(
+
                           children: List.generate(searchCategories.length, (index){
                             return CategoryStoryItem( name: searchCategories[index],);}
                            )
