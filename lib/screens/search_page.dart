@@ -16,7 +16,6 @@ class _SearchPageState extends State<SearchPage> {
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     return new Scaffold(
-      backgroundColor: Color(0xFFEDF0F6),
       body: SingleChildScrollView(
          child: Column(
             children: <Widget>[
@@ -32,7 +31,7 @@ class _SearchPageState extends State<SearchPage> {
                         height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                            color: Colors.blueGrey[200],
+                          color: Theme.of(context).accentColor,
                         ),
                         child: TextField(
                           decoration: InputDecoration(
@@ -42,7 +41,7 @@ class _SearchPageState extends State<SearchPage> {
                               color: Colors.black87,
                             )
                           ),
-                          style: TextStyle(color: Colors.white),
+                          style: Theme.of(context).textTheme.bodyText2,
                           cursorColor: Colors.white.withOpacity(0.3),
                         ),
                       ),

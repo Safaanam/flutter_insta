@@ -17,7 +17,7 @@ class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEDF0F6),
+
       body: SingleChildScrollView(
         physics: AlwaysScrollableScrollPhysics(),
         child: Column(
@@ -27,7 +27,7 @@ class _MessageScreenState extends State<MessageScreen> {
               width: double.infinity,
               height: 117.0,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.circular(25.0),
               ),
               child: Column(
@@ -42,7 +42,6 @@ class _MessageScreenState extends State<MessageScreen> {
                             IconButton(
                               icon: Icon(Icons.arrow_back),
                               iconSize: 30.0,
-                              color: Colors.black,
                               onPressed: () => Navigator.pop(context),
                             ),
                             Container(
@@ -74,10 +73,7 @@ class _MessageScreenState extends State<MessageScreen> {
                               ),
                               title: Text(
                                 posts[index].authorName,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25.0 ,
-                                ),
+                                style: Theme.of(context).textTheme.bodyText1,
                               ),
                             ),
                           ),
@@ -97,7 +93,7 @@ class _MessageScreenState extends State<MessageScreen> {
               width: 375.0,
               height: 450.0,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.circular(25.0),
               ),
               child: Form(
@@ -122,7 +118,9 @@ class _MessageScreenState extends State<MessageScreen> {
                           TextFormField(
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Enter UserId',),
+                                hintText: 'Enter UserId',
+                              ),
+                            style: Theme.of(context).textTheme.bodyText2,
                           )
                         ],
                       ),
@@ -146,17 +144,19 @@ class _MessageScreenState extends State<MessageScreen> {
                           TextFormField(
                             decoration: InputDecoration(
                               border: OutlineInputBorder(),
-                              labelText: 'Enter Message',),
+                                hintText: 'Enter UserId',),
+                            style: Theme.of(context).textTheme.bodyText2,
                           )
                         ],
                       ),
                     ),
                     SizedBox(height: 10.0),
                     RaisedButton(onPressed: () => {print('send'),},
-                      color: Colors.green[300],
+
                       child: Text(
                         'Send',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20.0,),
                       ),
 
                     )

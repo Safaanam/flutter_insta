@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_insta/app_theme.dart';
 import 'package:flutter_insta/models/post_model.dart';
 import 'package:flutter_insta/screens/view_post_screen.dart';
 import 'package:flutter_insta/screens/message_screen.dart';
 import 'package:flutter_insta/screens/search_page.dart';
+import 'package:provider/provider.dart';
 
 class FeedScreen extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _FeedScreenState extends State<FeedScreen> {
         width: double.infinity,
         height: 560.0,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).accentColor,
             borderRadius: BorderRadius.circular(25.0),
           ),
         child: Column(
@@ -53,11 +55,9 @@ class _FeedScreenState extends State<FeedScreen> {
                     ),
                     title: Text(
                       posts[index].authorName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                        style: Theme.of(context).textTheme.bodyText1,
                     ),
-                    subtitle: Text(posts[index].timeAgo),
+                    subtitle: Text(posts[index].timeAgo, style: Theme.of(context).textTheme.bodyText2,),
                     trailing: PopupMenuButton<String>(itemBuilder: (BuildContext context){
                         return [
                           PopupMenuItem(child: Text("Report"), value: "Report",),
@@ -172,7 +172,7 @@ class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Color(0xFFEDF0F6),
+
       body: ListView(
         physics: AlwaysScrollableScrollPhysics(),
         children: <Widget>[
@@ -190,6 +190,15 @@ class _FeedScreenState extends State<FeedScreen> {
                 ),
                 Row(
                   children: <Widget>[
+                    Consumer<ThemeNotifier>(
+                        builder: (context, notifier, child) => Switch(
+
+                          onChanged: (val){
+                            notifier.toggleTheme();
+                          },
+                          value: notifier.isDarkTheme,
+                        ),
+                    ),
                     IconButton(
                       icon: Icon(Icons.video_library_outlined),
                       iconSize:30.0,
