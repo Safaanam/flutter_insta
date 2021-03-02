@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_insta/app_theme.dart';
 import 'package:flutter_insta/models/post_model.dart';
+import 'package:flutter_insta/screens/image_screen.dart';
 import 'package:flutter_insta/screens/view_post_screen.dart';
 import 'package:flutter_insta/screens/message_screen.dart';
 import 'package:flutter_insta/screens/search_page.dart';
 import 'package:provider/provider.dart';
+
 
 class FeedScreen extends StatefulWidget {
   @override
@@ -305,22 +307,26 @@ class _FeedScreenState extends State<FeedScreen> {
               title: Text(''),
             ),
            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-                child: FlatButton(
+             icon: FlatButton(
                   padding: EdgeInsets.symmetric(vertical: 10.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   color: Color(0xFF23B66F),
-                  onPressed: () => print('Upload photo'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ImageScreen(),
+                      ),
+                    );
+                  },
                   child: Icon(
                     Icons.add,
                     size: 35.0,
                     color: Colors.white,
                   ),
-                ),
-              ),
+             ),
            title: Text(''),
           ),
           BottomNavigationBarItem(
