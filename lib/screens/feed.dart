@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_insta/app_theme.dart';
 import 'package:flutter_insta/models/post_model.dart';
 import 'package:flutter_insta/screens/image_screen.dart';
+import 'package:flutter_insta/screens/profile_page.dart';
 import 'package:flutter_insta/screens/view_post_screen.dart';
 import 'package:flutter_insta/screens/message_screen.dart';
 import 'package:flutter_insta/screens/search_page.dart';
@@ -338,11 +339,25 @@ class _FeedScreenState extends State<FeedScreen> {
             title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_outline,
-              size: 30.0,
-              color: Colors.grey,
+            icon: Padding(
+              padding: EdgeInsets.all(5.0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.person_outline,
+                ),
+                iconSize: 30.0,
+                color: Colors.grey,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ProfilePage(),
+                    ),
+                  );
+                },
+              ),
             ),
+
           title: Text(''),
           ),
         ],
