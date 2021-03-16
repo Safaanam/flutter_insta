@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_insta/app_theme.dart';
 import 'package:flutter_insta/screens/feed.dart';
+import 'package:flutter_insta/screens/image_screen.dart';
 import 'package:provider/provider.dart';
 
 
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Social Media',
             debugShowCheckedModeBanner: false,
             theme: notifier.isDarkTheme ? AppTheme.darkTheme : AppTheme.lightTheme,
-            home: FeedScreen(),
+            routes: {
+              FeedScreen.routeName: (context) => FeedScreen(),
+              ImageScreen.routeName: (context) => ImageScreen(),
+            },
+            initialRoute: FeedScreen.routeName,
 
           );
         }

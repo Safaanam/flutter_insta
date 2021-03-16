@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 
 class FeedScreen extends StatefulWidget {
+  static String routeName = '/';
   @override
   _FeedScreenState createState() => _FeedScreenState();
 }
@@ -73,7 +74,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                   InkWell(
                     onDoubleTap: () => print('Like post'),
-                    onTap: () {
+                    /*onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -82,7 +83,7 @@ class _FeedScreenState extends State<FeedScreen> {
                           ),
                         ),
                       );
-                    },
+                    }, */
                     child: Container(
                       margin: EdgeInsets.all(10.0),
                       width: double.infinity,

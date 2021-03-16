@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_insta/models/post_model.dart';
 
 class ImageScreen extends StatefulWidget {
+  static String routeName = '/ImageScreen';
   final Post post;
   ImageScreen({this.post});
   @override
