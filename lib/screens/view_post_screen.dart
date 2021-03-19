@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_insta/models/comment_model.dart';
 import 'package:flutter_insta/models/post_model.dart';
+import 'package:flutter_insta/models/save.dart';
 
 class ViewPostScreen extends StatefulWidget {
   final Post post;
@@ -198,11 +199,12 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                   ),
                                 ],
                               ),
-                              IconButton(
+                             Save(),
+                             /* IconButton(
                                 icon: Icon(Icons.bookmark_border),
                                 iconSize: 30.0,
                                 onPressed: () => print('Save post'),
-                              ),
+                              ), */
                             ],
                           ),
                         ),

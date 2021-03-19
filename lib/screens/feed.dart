@@ -74,7 +74,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                   InkWell(
                     onDoubleTap: () => print('Like post'),
-                    /*onTap: () {
+                    onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -83,7 +83,7 @@ class _FeedScreenState extends State<FeedScreen> {
                           ),
                         ),
                       );
-                    }, */
+                    },
                     child: Container(
                       margin: EdgeInsets.all(10.0),
                       width: double.infinity,
