@@ -276,6 +276,7 @@ class _FeedScreenState extends State<FeedScreen> {
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
+
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           items: [

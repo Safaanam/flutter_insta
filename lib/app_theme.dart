@@ -4,7 +4,7 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Color(0xFFEDF0F6),
       primaryColor: Colors.blue[500],
-      canvasColor: Colors.white,
+      canvasColor: Colors.transparent,
       accentColor: Colors.white,
       appBarTheme: AppBarTheme(
           color: Colors.blue[500],
@@ -18,6 +18,7 @@ class AppTheme {
           ),
           bodyText2: TextStyle(color: Colors.grey[800]),
           headline4: TextStyle(color: Colors.grey[900])),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: Colors.white),
       unselectedWidgetColor: Colors.blue[400],
       buttonTheme: ButtonThemeData(
           buttonColor: Colors.blueAccent, textTheme: ButtonTextTheme.primary));
@@ -25,7 +26,8 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
       scaffoldBackgroundColor: Colors.grey[700],
       accentColor: Colors.black45,
-      canvasColor: Colors.grey[800],
+      canvasColor: Colors.transparent,
+      primaryColor: Colors.teal,
       toggleableActiveColor: Colors.grey[300],
       appBarTheme: AppBarTheme(
           color: Colors.grey[900],
@@ -40,6 +42,7 @@ class AppTheme {
           bodyText2: TextStyle(color: Colors.grey[100],
               fontSize: 15.0),
           headline4: TextStyle(color: Colors.grey[50])),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: Colors.grey[800]),
       unselectedWidgetColor: Colors.grey[300],
       dividerColor: Colors.grey[500],
       buttonTheme: ButtonThemeData(

@@ -239,11 +239,12 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         ),
       ),
       bottomNavigationBar: Transform.translate(
-        offset: Offset(0.0, -1 * MediaQuery.of(context).viewInsets.bottom),
+        //offset: Offset(0.0, -1 * MediaQuery.of(context).viewInsets.bottom),
+        offset: Offset(0.0, 1.0) ,
         child: Container(
           height: 100.0,
           decoration: BoxDecoration(
-            color: Theme.of(context).canvasColor,
+            color: Theme.of(context).accentColor,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30.0),
               topRight: Radius.circular(30.0),
@@ -264,7 +265,7 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  borderSide: BorderSide(color: Colors.grey),
+                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),

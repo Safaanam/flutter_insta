@@ -35,6 +35,27 @@ class _ImageScreenState extends State<ImageScreen> {
     });
   }
 
+  void _modalAnimation(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            decoration:
+            BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(20) ,topRight: Radius.circular(20)),
+              color: Theme.of(context).accentColor,
+            ),
+            height: 200,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(175, 90, 0, 0),
+              child: Text('Hello'),
+
+            )
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,7 +161,7 @@ class _ImageScreenState extends State<ImageScreen> {
                      : Text('     Your image will appear here', style: TextStyle(fontStyle: FontStyle.italic),),
               ),
               SizedBox(height: 10.0,),
-              RaisedButton(onPressed: () => {print('upload'),},
+              RaisedButton(onPressed: () => _modalAnimation(context),
                 child: Text(
                   'Post',
                   style: TextStyle(
