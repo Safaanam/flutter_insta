@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_insta/models/post_model.dart';
+import 'package:flutter_gifimage/flutter_gifimage.dart';
 
 class ImageScreen extends StatefulWidget {
   static String routeName = '/ImageScreen';
@@ -12,9 +13,26 @@ class ImageScreen extends StatefulWidget {
   _ImageScreenState createState() => _ImageScreenState();
 }
 
-class _ImageScreenState extends State<ImageScreen> {
+class _ImageScreenState extends State<ImageScreen> with SingleTickerProviderStateMixin {
+  GifController controller1;
   int index=0;
   File _image;
+
+  @override
+  void initState() {
+    controller1 = GifController(vsync: this);
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      controller1.repeat(min: 1,max: 32,period: Duration(milliseconds: 900));
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller1.dispose();
+  }
+
   _imgFromCamera() async {
     File image = await ImagePicker.pickImage(
         source: ImageSource.camera, imageQuality: 50
@@ -46,11 +64,10 @@ class _ImageScreenState extends State<ImageScreen> {
               color: Theme.of(context).accentColor,
             ),
             height: 200,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(175, 90, 0, 0),
-              child: Text('Hello'),
-
-            )
+            child: GifImage(
+              controller: controller1,
+              image: AssetImage("assets/images/success.gif"),
+            ),
           );
         }
     );
